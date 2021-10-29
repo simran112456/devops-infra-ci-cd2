@@ -1,0 +1,4 @@
+com\myapp\spring\integration\ProductIntegrationTest.class
+com\myapp\spring\repository\ProductRepositoryTest.class
+com\myapp\spring\DevopsInfrastructureApplicationTests.class
+com\myapp\spring\web\api\ProductAPITest.class

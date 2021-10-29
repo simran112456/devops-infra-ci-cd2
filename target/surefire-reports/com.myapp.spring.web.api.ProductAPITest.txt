@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.myapp.spring.web.api.ProductAPITest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.697 s - in com.myapp.spring.web.api.ProductAPITest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.074 s - in com.myapp.spring.web.api.ProductAPITest

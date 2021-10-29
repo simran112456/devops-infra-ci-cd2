@@ -5,11 +5,11 @@ devops-infra-ci-cd2,com.myapp.spring.model,Role,21,3,0,0,9,1,6,1,6,1
 devops-infra-ci-cd2,com.myapp.spring.model,Product,76,53,14,0,9,23,9,12,2,12
 devops-infra-ci-cd2,com.myapp.spring.config,WebSecurityConfig,0,69,0,0,0,18,0,5,0,5
 devops-infra-ci-cd2,com.myapp.spring.service,SecurityServiceImpl,48,7,4,0,11,2,4,2,2,2
-devops-infra-ci-cd2,com.myapp.spring.service,UserDetailsServiceImpl,45,3,4,0,6,1,3,1,1,1
+devops-infra-ci-cd2,com.myapp.spring.service,UserDetailsServiceImpl,45,3,4,0,7,1,3,1,1,1
 devops-infra-ci-cd2,com.myapp.spring.service,UserServiceImpl,26,3,0,0,5,1,2,1,2,1
-devops-infra-ci-cd2,com.myapp.spring,BCryptPasswordEnocder,54,0,0,0,11,0,2,0,2,0
+devops-infra-ci-cd2,com.myapp.spring,BCryptPasswordEnocder,36,0,0,0,11,0,2,0,2,0
 devops-infra-ci-cd2,com.myapp.spring,DevopsInfrastructureApplication,14,3,0,0,3,1,2,1,2,1
-devops-infra-ci-cd2,com.myapp.spring,SpringJdbcSecurityConfig,38,0,0,0,18,0,4,0,4,0
+devops-infra-ci-cd2,com.myapp.spring,SpringJdbcSecurityConfig,38,0,0,0,16,0,4,0,4,0
 devops-infra-ci-cd2,com.myapp.spring.validator,UserValidator,64,3,12,0,13,1,8,1,2,1
 devops-infra-ci-cd2,com.myapp.spring.web.api,ResourceNotFoundException,4,0,0,0,2,0,1,0,1,0
-devops-infra-ci-cd2,com.myapp.spring.web.api,ProductAPI,55,84,0,0,10,12,4,7,4,7
+devops-infra-ci-cd2,com.myapp.spring.web.api,ProductAPI,45,84,0,0,7,11,4,7,4,7

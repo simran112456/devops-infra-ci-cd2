@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SpringJdbcSecurityConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">devops-infra-ci-cd2</a> &gt; <a href="index.source.html" class="el_package">com.myapp.spring</a> &gt; <span class="el_source">SpringJdbcSecurityConfig.java</span></div><h1>SpringJdbcSecurityConfig.java</h1><pre class="source lang-java linenums">package com.myapp.spring;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+//@Configuration
+//@EnableWebSecurity
+<span class="nc" id="L17">public class SpringJdbcSecurityConfig extends WebSecurityConfigurerAdapter {</span>
+ 
+	@Autowired
+    private DataSource dataSource;
+   
+
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+<span class="nc" id="L26">        return new BCryptPasswordEncoder();</span>
+    }
+    
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+<span class="nc" id="L31">        auth</span>
+<span class="nc" id="L32">            .jdbcAuthentication()</span>
+<span class="nc" id="L33">            .dataSource(dataSource)</span>
+<span class="nc" id="L34">           .passwordEncoder(passwordEncoder())</span>
+<span class="nc" id="L35">            .usersByUsernameQuery(</span>
+                &quot;SELECT username, password, enabled from users where username = ?&quot;)
+<span class="nc" id="L37">            .authoritiesByUsernameQuery(</span>
+                &quot;SELECT u.username, a.authority &quot; +
+                &quot;FROM user_authorities a, users u &quot; +
+                &quot;WHERE u.username = ? &quot; +
+                &quot;AND u.id = a.user_id&quot;
+            );
+<span class="nc" id="L43">    }</span>
+    
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+<span class="nc" id="L47">    	http.authorizeRequests()</span>
+<span class="nc" id="L48">        .anyRequest().authenticated()</span>
+<span class="nc" id="L49">        .and()</span>
+<span class="nc" id="L50">        .formLogin().permitAll()</span>
+<span class="nc" id="L51">        .and()</span>
+<span class="nc" id="L52">        .logout().permitAll();  </span>
+//        http.formLogin();
+//
+//        http.authorizeRequests()
+//                //.antMatchers(&quot;/api/v1/products/**&quot;).hasAnyRole(&quot;admin&quot;, &quot;admin&quot;)
+//                .antMatchers(&quot;/api/v1/products/**&quot;).hasRole(&quot;ADMIN&quot;)
+//                .antMatchers(&quot;/&quot;).permitAll();
+<span class="nc" id="L59">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
